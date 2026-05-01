@@ -1,3 +1,3 @@
-def num(String name){
+def num(name){
   echo "Hello ${name}"
 }
