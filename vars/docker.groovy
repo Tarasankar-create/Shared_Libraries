@@ -1,4 +1,5 @@
-def docker(){
+node{
+def docker={
   sh '''
   sudo apt update
   sudo apt install -y docker.io
@@ -6,4 +7,5 @@ def docker(){
   sudo systemctl start docker
   sudo systemctl enable docker
   '''
+}
 }
