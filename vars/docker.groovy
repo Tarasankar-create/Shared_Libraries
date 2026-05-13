@@ -6,6 +6,7 @@ def docker={
   sudo apt install -y docker-compose-v2
   sudo systemctl start docker
   sudo systemctl enable docker
+  docker --version
   '''
 }
 }
