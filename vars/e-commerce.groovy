@@ -1,3 +1,3 @@
-def call(url){
-  git clone "${url}"
+def call(String url){
+ sh git clone "${url}"
 }
