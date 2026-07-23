@@ -1,7 +1,6 @@
-// vars/owasp_dependency.groovy
 def call() {
-    dependencyCheck additionalArguments: '--scan ./ --format XML --disableYarnAudit --disableNodeAudit',
-                     odcInstallation: 'DP-Check'
+    dependencyCheck additionalArguments: '--scan . --format XML --format HTML',
+                    odcInstallation: 'Dependency-Check'
 
-    archiveArtifacts artifacts: 'dependency-check-report.xml', allowEmptyArchive: true
+    dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
 }
