@@ -1,5 +1,5 @@
 def call(String url, String branch){
-  withCredentials([usernamePassword(credentialsId: jenkins ,passwordVariable: gitpass,usernameVariable:gituser)]){
+  withCredentials([usernamePassword(credentialsId: 'jenkins' ,passwordVariable: 'gitpass',usernameVariable:'gituser')]){
     sh """
             echo "Checking git status"
             git status
@@ -11,7 +11,7 @@ def call(String url, String branch){
             git commit -m "Update docker tag in deployment"
 
             echo "Git push changes"
-            git push ${url} ${branch}
+            git push https://${gituser}:${gitpass}@${url.replaceFirst('https://', '')} ${branch}
           """
   }
 }
